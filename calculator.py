@@ -18,37 +18,43 @@ class calculator:
         if x < 0: raise ValueError("Cannot compute square root of a negative number.")
         return math.sqrt(x)
 
-geo_calculator = geometryCalculator()
+def main():
+    while True:
+        choice = input("\nSelect Calculator:\n1. Geometry\n2. Basic\n3. Exit\nEnter your choice (1/2/3): ")
+        if choice == '1':
+            geo_calculator = geometryCalculator()
+            geo_choice = input("1. Circle Area\n2. Rectangle Area\nEnter your choice (1/2): ")
+            if geo_choice == '1':
+                radius = float(input("Enter radius: "))
+                print(f"Circle area: {geo_calculator.calculate_circle_area(radius):.2f}")
+            elif geo_choice == '2':
+                length = float(input("Enter length: "))
+                width = float(input("Enter width: "))
+                print(f"Rectangle area: {geo_calculator.calculate_rectangle_area(length, width):.2f}")
+        elif choice == '2':
+            calculator = calculator()
+            calc_choice = input("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square Root\nEnter your choice (1-5): ")
+            if calc_choice in ['1', '2', '3', '4']:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                operations = {
+                    '1': calculator.add,
+                    '2': calculator.subtract,
+                    '3': calculator.multiply,
+                    '4': calculator.divide
+                }
+                print(f"Result: {operations[calc_choice](num1, num2)}")
+            elif calc_choice == '5':
+                num = float(input("Enter number for square root: "))
+                try:
+                    print(f"Square root: {calculator.square_root(num):.2f}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+        elif choice == '3':
+            print("Exiting.")
+            break
+        else:
+            print("Invalid choice.")
 
-#Implemeted Error Handling using Try Catch
-try:
-    radius = float(input("Enter the radius of the circle: "))
-    circle_area = geo_calculator.calculate_circle_area(radius)
-    print(f"Circle area (radius {radius}): {circle_area:.2f}")  #Restricted to 2 Decimal points
-
-    length = float(input("Enter the length of the rectangle: "))
-    width = float(input("Enter the width of the rectangle: "))
-    rectangle_area = geo_calculator.calculate_rectangle_area(length, width)
-    print(f"Rectangle area (length {length}, width {width}): {rectangle_area:.2f}") #Restricted to 2 Decimal points
-
-except ValueError as e:
-    print(f"Error: {e}") 
-
-calculator = calculator()
-
-try:
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-
-    print(f"Addition: {num1} + {num2} = {calculator.add(num1, num2)}")
-    print(f"Subtraction: {num1} - {num2} = {calculator.subtract(num1, num2)}")
-    print(f"Multiplication: {num1} * {num2} = {calculator.multiply(num1, num2)}")
-    print(f"Division: {num1} / {num2} = {calculator.divide(num1, num2)}")
-
-    num3 = float(input("Enter a number to calculate its square root: "))
-    print(f"Square root of {num3}: {calculator.square_root(num3):.2f}")
-
-except ValueError as e:
-    print(f"Error: {e}")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+if __name__ == "__main__":
+    main()
