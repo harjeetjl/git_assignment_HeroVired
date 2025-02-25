@@ -20,7 +20,7 @@ circle_radius = 5
 
 circle_area = geometric_calculator.calculate_circle_area(circle_radius)
 
-print(f"Circle area (radius {circle_radius}): {circle_area:.2f}")
+print(f"Circle area: {circle_area}")
 
 calculator = calculator()
 num1 = 15
