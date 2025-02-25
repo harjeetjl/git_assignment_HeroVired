@@ -19,22 +19,36 @@ class calculator:
         return math.sqrt(x)
 
 geo_calculator = geometryCalculator()
-circle_radius = 5
-rectangle_length = 10
-rectangle_width = 6
 
-circle_area = geo_calculator.calculate_circle_area(circle_radius)
-rectangle_area = geo_calculator.calculate_rectangle_area(rectangle_length, rectangle_width)
+#Implemeted Error Handling using Try Catch
+try:
+    radius = float(input("Enter the radius of the circle: "))
+    circle_area = geo_calculator.calculate_circle_area(radius)
+    print(f"Circle area (radius {radius}): {circle_area:.2f}")  #Restricted to 2 Decimal points
 
-print(f"Circle area: {circle_area}")
-print(f"Rectangle area: {rectangle_area:.2f}")
+    length = float(input("Enter the length of the rectangle: "))
+    width = float(input("Enter the width of the rectangle: "))
+    rectangle_area = geo_calculator.calculate_rectangle_area(length, width)
+    print(f"Rectangle area (length {length}, width {width}): {rectangle_area:.2f}") #Restricted to 2 Decimal points
+
+except ValueError as e:
+    print(f"Error: {e}") 
 
 calculator = calculator()
-num1 = 15
-num2 = 3
 
-print(f"Addition: {num1} + {num2} = {calculator.add(num1, num2)}")
-print(f"Subtraction: {num1} - {num2} = {calculator.subtract(num1, num2)}")
-print(f"Multiplication: {num1} * {num2} = {calculator.multiply(num1, num2)}")
-print(f"Division: {num1} / {num2} = {calculator.divide(num1, num2)}")
-print(f"Square root of {num1}: {calculator.square_root(num1):.2f}")
+try:
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+
+    print(f"Addition: {num1} + {num2} = {calculator.add(num1, num2)}")
+    print(f"Subtraction: {num1} - {num2} = {calculator.subtract(num1, num2)}")
+    print(f"Multiplication: {num1} * {num2} = {calculator.multiply(num1, num2)}")
+    print(f"Division: {num1} / {num2} = {calculator.divide(num1, num2)}")
+
+    num3 = float(input("Enter a number to calculate its square root: "))
+    print(f"Square root of {num3}: {calculator.square_root(num3):.2f}")
+
+except ValueError as e:
+    print(f"Error: {e}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
