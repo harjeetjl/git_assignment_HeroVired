@@ -18,23 +18,43 @@ class calculator:
         if x < 0: raise ValueError("Cannot compute square root of a negative number.")
         return math.sqrt(x)
 
-geo_calculator = geometryCalculator()
-circle_radius = 5
-rectangle_length = 10
-rectangle_width = 6
+def main():
+    while True:
+        choice = input("\nSelect Calculator:\n1. Geometry\n2. Basic\n3. Exit\nEnter your choice (1/2/3): ")
+        if choice == '1':
+            geo_calculator = geometryCalculator()
+            geo_choice = input("1. Circle Area\n2. Rectangle Area\nEnter your choice (1/2): ")
+            if geo_choice == '1':
+                radius = float(input("Enter radius: "))
+                print(f"Circle area: {geo_calculator.calculate_circle_area(radius):.2f}")
+            elif geo_choice == '2':
+                length = float(input("Enter length: "))
+                width = float(input("Enter width: "))
+                print(f"Rectangle area: {geo_calculator.calculate_rectangle_area(length, width):.2f}")
+        elif choice == '2':
+            calculator = calculator()
+            calc_choice = input("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square Root\nEnter your choice (1-5): ")
+            if calc_choice in ['1', '2', '3', '4']:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+                operations = {
+                    '1': calculator.add,
+                    '2': calculator.subtract,
+                    '3': calculator.multiply,
+                    '4': calculator.divide
+                }
+                print(f"Result: {operations[calc_choice](num1, num2)}")
+            elif calc_choice == '5':
+                num = float(input("Enter number for square root: "))
+                try:
+                    print(f"Square root: {calculator.square_root(num):.2f}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+        elif choice == '3':
+            print("Exiting.")
+            break
+        else:
+            print("Invalid choice.")
 
-circle_area = geo_calculator.calculate_circle_area(circle_radius)
-rectangle_area = geo_calculator.calculate_rectangle_area(rectangle_length, rectangle_width)
-
-print(f"Circle area: {circle_area}")
-print(f"Rectangle area: {rectangle_area:.2f}")
-
-calculator = calculator()
-num1 = 15
-num2 = 3
-
-print(f"Addition: {num1} + {num2} = {calculator.add(num1, num2)}")
-print(f"Subtraction: {num1} - {num2} = {calculator.subtract(num1, num2)}")
-print(f"Multiplication: {num1} * {num2} = {calculator.multiply(num1, num2)}")
-print(f"Division: {num1} / {num2} = {calculator.divide(num1, num2)}")
-print(f"Square root of {num1}: {calculator.square_root(num1):.2f}")
+if __name__ == "__main__":
+    main()
