@@ -4,6 +4,9 @@ class geometryCalculator:
     def calculate_circle_area(self, radius):
         return math.pi * radius ** 2
 
+    def calculate_rectangle_area(self, length, width):
+        return length * width
+
 class calculator:
     def add(self, a, b): return a + b
     def subtract(self, a, b): return a - b
@@ -15,12 +18,16 @@ class calculator:
         if x < 0: raise ValueError("Cannot compute square root of a negative number.")
         return math.sqrt(x)
 
-geometric_calculator = geometryCalculator()
+geo_calculator = geometryCalculator()
 circle_radius = 5
+rectangle_length = 10
+rectangle_width = 6
 
-circle_area = geometric_calculator.calculate_circle_area(circle_radius)
+circle_area = geo_calculator.calculate_circle_area(circle_radius)
+rectangle_area = geo_calculator.calculate_rectangle_area(rectangle_length, rectangle_width)
 
 print(f"Circle area: {circle_area}")
+print(f"Rectangle area: {rectangle_area:.2f}")
 
 calculator = calculator()
 num1 = 15
