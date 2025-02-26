@@ -1,14 +1,14 @@
 # Git Assignment - Harjeet
 
 ## Overview
-This repository contains Python scripts for various computational tasks, including arithmetic operations, geometric calculations, and Git version control workflows. It is part of my Git assignment for HeroVired and showcases version control best practices, collaboration, and branching strategies.
+This repository contains Python scripts for various computational tasks, including arithmetic operations, geometric calculations, and Git version control workflows. It is part of my Git assignment for HeroVired, showcasing version control best practices, collaboration, and branching strategies.
 
 ## Repository Structure
 - **calculator.py**: A Python script that performs basic arithmetic operations, including addition, subtraction, multiplication, and division, along with a square root function.
-- **geometry-calc.py**: A Python script for geometric calculations, including area computations for circles and rectangles.
+- **geometry-calc.py**: A Python script for performing geometric calculations, including area computations for circles and rectangles.
 - **git_lfs.txt**: A text file containing detailed steps for Git LFS tracking.
 - **large_file.bin**: A large binary file tracked using Git LFS.
-- **.gitattributes**: A Git configuration file that specifies how Git LFS should handle certain files.
+- **.gitattributes**: A Git configuration file that specifies how certain files should be handled by Git LFS.
 - **README.md**: This file, providing details about the repository.
 
 ## Branches Overview
@@ -100,31 +100,9 @@ This repository contains Python scripts for various computational tasks, includi
    - Create pull requests for `dev`.
    - Merge into `main` upon approval.
 
-## Scripts Execution Steps with Output Screenshots Reference
-
-- **calculator.py Output [Question 1]**
-![image](https://github.com/user-attachments/assets/f092fb5b-7cc8-486f-9cc4-e7e3dd5db48c)
-![image](https://github.com/user-attachments/assets/7c2e9609-f26c-4f77-b7c4-e4cd4eddf5e4)
-
-
-- **git lfs output [Question 2]**
-![Screenshot 2025-02-25 224028](https://github.com/user-attachments/assets/bf86c59c-e1ed-4096-9317-e76632e8cb89)
-
-
-- **calculator.py Output [Question 3]**
-![image](https://github.com/user-attachments/assets/134f9ad7-5d32-4afb-8bfa-bac07dbee38d)
-
 
 ## Fellow Collaborators
 Thanks to my collaborators for their support in this assignment:
 - @tanujbhatia24
 - @minnathdhani
 - @shraddhabhat06
-
-## Contribution
-To contribute:
-1. Fork the repository.
-2. Create a feature branch from the dev branch.
-3. Commit your changes.
-4. Push to your branch and open a Pull Request.
-
